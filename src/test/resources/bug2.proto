@@ -1,0 +1,16 @@
+
+syntax = "proto2";
+
+option optimize_for = LITE_RUNTIME;
+
+option java_package = "com.x.protobuf";
+option java_outer_classname = "SyncEnumsPB";
+
+package sync_pb;
+
+message SyncEnums {
+  enum PageTransition {
+    LINK = 0;
+    TYPED = 1;
+  }
+}

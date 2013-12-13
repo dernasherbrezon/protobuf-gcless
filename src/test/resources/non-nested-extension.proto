@@ -1,0 +1,12 @@
+package protobuf_unittest;
+
+message MessageToBeExtended {
+  extensions 1 to max;
+}
+
+message MyNonNestedExtension {
+}
+
+extend MessageToBeExtended {
+  optional MyNonNestedExtension nonNestedExtension = 1;
+}

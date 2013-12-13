@@ -1,0 +1,9 @@
+import "src/test/resources/non-nested-extension.proto";
+
+package protobuf_unittest;
+
+message MyNestedExtension {
+  extend MessageToBeExtended {
+    optional MessageToBeExtended recursiveExtension = 2;
+  }
+}

@@ -1,0 +1,24 @@
+syntax = "proto2";
+
+option optimize_for = LITE_RUNTIME;
+
+option java_package = "com.x.protobuf";
+option java_outer_classname = "Bug7";
+
+package sync_pb;
+
+message SearchResponse {
+  repeated group Result = 1 {
+    required string url = 2;
+    optional string title = 3;
+    repeated string snippets = 4;
+  }
+  
+  optional group Test = 2 {
+  	required string test = 1;
+  }
+  
+  required group Test2 = 3 {
+  	optional int32 test = 1;
+  }
+}

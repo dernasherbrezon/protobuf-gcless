@@ -1,0 +1,27 @@
+syntax = "proto2";
+
+option optimize_for = LITE_RUNTIME;
+
+option java_package = "com.x.protobuf";
+option java_outer_classname = "Bug11";
+
+package sync_pb;
+
+message A {
+  repeated B entry = 32904;
+  optional int32 entry2 = 32902;
+}
+
+message B {
+  optional string val = 1;
+  optional C cval = 2;
+  repeated group Result = 3 {
+    required string url = 2;
+    optional string title = 3;
+    repeated string snippets = 4;
+  }
+}
+
+message C {
+	optional string val = 1;
+}

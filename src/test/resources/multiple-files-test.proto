@@ -1,0 +1,34 @@
+option java_generic_services = true;   // auto-added
+
+import "src/test/resources/unittest.proto";
+
+package protobuf_unittest;
+
+option java_multiple_files = true;
+option java_outer_classname = "MultipleFilesTestProto";
+
+message MessageWithNoOuter {
+  message NestedMessage {
+    optional int32 i = 1;
+  }
+  enum NestedEnum {
+    BAZ = 3;
+  }
+  optional NestedMessage nested = 1;
+  repeated TestAllTypes foreign = 2;
+  optional NestedEnum nested_enum = 3;
+  optional EnumWithNoOuter foreign_enum = 4;
+}
+
+enum EnumWithNoOuter {
+  FOO = 1;
+  BAR = 2;
+}
+
+service ServiceWithNoOuter {
+  rpc Foo(MessageWithNoOuter) returns(TestAllTypes);
+}
+
+extend TestAllExtensions {
+  optional int32 extension_with_outer = 1234567;
+}

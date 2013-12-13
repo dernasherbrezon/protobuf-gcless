@@ -1,0 +1,11 @@
+package protobuf_unittest;
+
+option optimize_for = LITE_RUNTIME;
+
+import "src/test/resources/non-nested-extension-lite.proto";
+
+message MyNestedExtensionLite {
+  extend MessageLiteToBeExtended {
+    optional MessageLiteToBeExtended recursiveExtensionLite = 3;
+  }
+}

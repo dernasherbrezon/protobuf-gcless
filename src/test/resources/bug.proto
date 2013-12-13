@@ -1,0 +1,16 @@
+
+syntax = "proto2";
+
+option optimize_for = LITE_RUNTIME;
+
+option java_package = "com.x.protobuf";
+option java_outer_classname = "TabNavigationPB";
+
+package sync_pb;
+
+import "src/test/resources/bug2.proto";
+
+message TabNavigation {
+  optional string state = 5;
+  optional SyncEnums.PageTransition page_transition = 6 [default = TYPED];
+}

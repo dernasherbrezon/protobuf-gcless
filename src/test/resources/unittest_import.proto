@@ -1,0 +1,17 @@
+package protobuf_gcless_import;
+
+option optimize_for = SPEED;
+
+// Excercise the java_package option.
+// Do not set a java_outer_classname here to verify that Proto2 works without
+// one.
+
+message ImportMessage {
+  optional int32 d = 1;
+}
+
+enum ImportEnum {
+  IMPORT_FOO = 7;
+  IMPORT_BAR = 8;
+  IMPORT_BAZ = 9;
+}

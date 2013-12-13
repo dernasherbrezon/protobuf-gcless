@@ -1,0 +1,15 @@
+syntax = "proto2";
+
+option optimize_for = LITE_RUNTIME;
+
+option java_package = "com.x.protobuf";
+option java_outer_classname = "Bug3";
+
+package sync_pb;
+
+message B {
+  optional string id_string = 1;
+}
+message A {
+  optional B entry = 32904;
+}

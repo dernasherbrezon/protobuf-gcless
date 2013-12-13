@@ -1,0 +1,14 @@
+package protobuf_unittest;
+
+option optimize_for = LITE_RUNTIME;
+
+message MessageLiteToBeExtended {
+  extensions 1 to max;
+}
+
+message MyNonNestedExtensionLite {
+}
+
+extend MessageLiteToBeExtended {
+  optional MyNonNestedExtensionLite nonNestedExtensionLite = 1;
+}

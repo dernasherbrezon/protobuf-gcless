@@ -1,0 +1,12 @@
+syntax = "proto2";
+
+option optimize_for = LITE_RUNTIME;
+
+option java_package = "com.x.protobuf";
+option java_outer_classname = "Bug15";
+
+package sync_pb;
+
+enum MsgType {
+    INC_TC_MSG = 0;
+}

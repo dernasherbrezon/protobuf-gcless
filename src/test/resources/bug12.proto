@@ -1,0 +1,18 @@
+syntax = "proto2";
+
+option optimize_for = LITE_RUNTIME;
+
+package sync_pb;
+option java_package = "com.x.protobuf";
+option java_outer_classname = "Bug12";
+
+
+message Message {
+  enum PassphraseType {
+    IMPLICIT_PASSPHRASE = 1;
+    KEYSTORE_PASSPHRASE = 2;
+    FROZEN_IMPLICIT_PASSPHRASE  = 3;
+    CUSTOM_PASSPHRASE = 4;
+  }
+  optional PassphraseType passphrase_type = 30 [default = IMPLICIT_PASSPHRASE];
+}
