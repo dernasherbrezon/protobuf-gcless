@@ -1,6 +1,5 @@
 package protobuf_gcless_import;
 
-import java.io.IOException;
 public final class ImportMessageSerializer {
 public static byte[] serialize(protobuf_gcless_import.ImportMessage message) {
 try {
@@ -24,7 +23,7 @@ try {
 if (message.hasD()) {
 ProtobufOutputStream.writeInt32(1, message.getD(), os);
 }
-} catch (IOException e) {
+} catch (java.io.IOException e) {
 throw new RuntimeException("Serializing to a byte array threw an IOException (should never happen).", e);
 }
 }

@@ -300,6 +300,7 @@ final public class ProtobufInputStream {
 		return readRawLittleEndian32(data, cursor);
 	}
 
+	@SuppressWarnings("cast")
 	public static int readRawLittleEndian32(byte[] data, CurrentCursor cursor) {
 		final byte b1 = readRawByte(data, cursor);
 		final byte b2 = readRawByte(data, cursor);
@@ -523,6 +524,7 @@ final public class ProtobufInputStream {
 		return result;
 	}
 
+	@SuppressWarnings("cast")
 	private static int readRawLittleEndian32(InputStream is, CurrentCursor cursor) throws IOException {
 		final byte b1 = readRawByte(is, cursor);
 		final byte b2 = readRawByte(is, cursor);

@@ -712,10 +712,12 @@ final public class ProtobufOutputStream {
 		return computeTagSize(fieldNumber) + computeSint64SizeNoTag(value);
 	}
 
+	@SuppressWarnings("unused")
 	public static int computeDoubleSizeNoTag(final double value) {
 		return LITTLE_ENDIAN_64_SIZE;
 	}
 
+	@SuppressWarnings("unused")
 	public static int computeFloatSizeNoTag(final float value) {
 		return LITTLE_ENDIAN_32_SIZE;
 	}
@@ -759,14 +761,17 @@ final public class ProtobufOutputStream {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	public static int computeFixed64SizeNoTag(final long value) {
 		return LITTLE_ENDIAN_64_SIZE;
 	}
 
+	@SuppressWarnings("unused")
 	public static int computeFixed32SizeNoTag(final int value) {
 		return LITTLE_ENDIAN_32_SIZE;
 	}
 
+	@SuppressWarnings("unused")
 	public static int computeBoolSizeNoTag(final boolean value) {
 		return 1;
 	}
@@ -788,10 +793,12 @@ final public class ProtobufOutputStream {
 		return computeRawVarint32Size(value);
 	}
 
+	@SuppressWarnings("unused")
 	public static int computeSfixed32SizeNoTag(final int value) {
 		return LITTLE_ENDIAN_32_SIZE;
 	}
 
+	@SuppressWarnings("unused")
 	public static int computeSfixed64SizeNoTag(final long value) {
 		return LITTLE_ENDIAN_64_SIZE;
 	}
