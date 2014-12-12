@@ -28,6 +28,18 @@ public void setEntry2(int Entry2) {
 this.entry2 = Entry2;
 this.hasEntry2 = true;
 }
+private com.x.protobuf.Bug10.B entry3;
+private boolean hasEntry3;
+public boolean hasEntry3() {
+return hasEntry3;
+}
+public com.x.protobuf.Bug10.B getEntry3() {
+return entry3;
+}
+public void setEntry3(com.x.protobuf.Bug10.B Entry3) {
+this.entry3 = Entry3;
+this.hasEntry3 = true;
+}
 @Override
 public String toString() {
 java.lang.StringBuilder builder = new java.lang.StringBuilder();
@@ -56,6 +68,13 @@ a_.append("null");
 }
 a_.append(",");
 a_.append(" entry2=" + entry2);
+a_.append(",");
+a_.append(" entry3=");
+if ( entry3 != null ) {
+entry3.toString(a_);
+} else {
+a_.append("null");
+}
 a_.append("]");
 }
 }
@@ -78,6 +97,13 @@ totalSize += entryBuffer.length;
 if (message.hasEntry2()) {
 totalSize += ProtobufOutputStream.computeInt32Size(32902, message.getEntry2());
 }
+byte[] entry3Buffer = null;
+if (message.hasEntry3()) {
+entry3Buffer = com.x.protobuf.Bug10.BSerializer.serialize(message.getEntry3());
+totalSize += ProtobufOutputStream.computeTagSize(32903);
+totalSize += ProtobufOutputStream.computeRawVarint32Size(entry3Buffer.length);
+totalSize += entry3Buffer.length;
+}
 final byte[] result = new byte[totalSize];
 int position = 0;
 if (message.hasEntry()) {
@@ -85,6 +111,9 @@ position = ProtobufOutputStream.writeRawBytes(entryBuffer, result, position);
 }
 if (message.hasEntry2()) {
 position = ProtobufOutputStream.writeInt32(32902, message.getEntry2(), result, position);
+}
+if (message.hasEntry3()) {
+position = ProtobufOutputStream.writeBytes(32903, entry3Buffer, result, position);
 }
 ProtobufOutputStream.checkNoSpaceLeft(result, position);
 return result;
@@ -104,6 +133,12 @@ os.write(curMessageData);
 }
 if (message.hasEntry2()) {
 ProtobufOutputStream.writeInt32(32902, message.getEntry2(), os);
+}
+if (message.hasEntry3()) {
+byte[] curMessageData = com.x.protobuf.Bug10.BSerializer.serialize(message.getEntry3());
+ProtobufOutputStream.writeMessageTag(32903, os);
+ProtobufOutputStream.writeRawVarint32(curMessageData.length, os);
+os.write(curMessageData);
 }
 } catch (java.io.IOException e) {
 throw new RuntimeException("Serializing to a byte array threw an IOException (should never happen).", e);
@@ -144,6 +179,11 @@ break;
 case 32902: 
 message.setEntry2(ProtobufInputStream.readInt32(data,cursor));
 break;
+case 32903: 
+int lengthEntry3 = ProtobufInputStream.readRawVarint32(data,cursor);
+message.setEntry3(com.x.protobuf.Bug10.BSerializer.parseFrom(data, cursor.getCurrentPosition(), lengthEntry3));
+cursor.addToPosition(lengthEntry3);
+break;
 }
 }
 }
@@ -183,6 +223,11 @@ cursor.addToPosition(lengthEntry);
 break;
 case 32902: 
 message.setEntry2(ProtobufInputStream.readInt32(is,cursor));
+break;
+case 32903: 
+int lengthEntry3 = ProtobufInputStream.readRawVarint32(is,cursor);
+message.setEntry3(com.x.protobuf.Bug10.BSerializer.parseFrom(is, cursor.getCurrentPosition(), lengthEntry3));
+cursor.addToPosition(lengthEntry3);
 break;
 }
 }

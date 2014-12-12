@@ -10,6 +10,7 @@ package sync_pb;
 message A {
   repeated B entry = 32904;
   optional int32 entry2 = 32902;
+  optional B entry3 = 32903;
 }
 
 message B {
