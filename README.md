@@ -1,4 +1,4 @@
-About
+About [![Build Status](https://travis-ci.org/dernasherbrezon/protobuf-gcless.svg?branch=master)](https://travis-ci.org/dernasherbrezon/protobuf-gcless) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=com.google.code%3Aprotobuf-gcless&metric=alert_status)](https://sonarcloud.io/dashboard?id=com.google.code%3Aprotobuf-gcless)
 --------
 
 Protobuf out-of-the-box is not a simple a way of encoding data. It forces to use additional features like:
